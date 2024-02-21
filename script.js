@@ -98,7 +98,7 @@ function getStates(){
         if(sorou==3){
             winner=true;
         }else{
-            winner=false;
+            winner=markNumType;
         }
         break;
     }else{
@@ -112,7 +112,7 @@ function getStates(){
         
         end=false;
         win=undefined;
-        winner=undefined;
+        winner=markNumType;
     }
     }
     if(cnt==9){
