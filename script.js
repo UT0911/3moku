@@ -73,12 +73,9 @@ if(tableArrs[rowIndex][columnIndex]==0)
  * @returns {void}
  */
 function updateStates(rowIndex,columnIndex){
-    /*
-
-    この関数を編集
-
-    */
-    return;
+     tableArrs[rowIndex][columnIndex]=turnNum;
+    turnNum*=-1;
+cnt+=1;
 }
 
 /**
