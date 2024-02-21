@@ -60,10 +60,11 @@ table.addEventListener("click",clickEvent);/* クリック時の実行関数を�
  * @returns {boolean}
  */
 function isAbleToMark(rowIndex,columnIndex){
-    const TF;
+       const TF;
 if(tableArrs[rowIndex][columnIndex]==0)
     TF=true;
     return TF;
+    return true;
 }
 
 /**
@@ -73,8 +74,7 @@ if(tableArrs[rowIndex][columnIndex]==0)
  * @returns {void}
  */
 function updateStates(rowIndex,columnIndex){
-    
-    tableArrs[rowIndex][columnIndex]=turnNum;
+     tableArrs[rowIndex][columnIndex]=turnNum;
     turnNum*=-1;
 }
 
@@ -86,7 +86,13 @@ function updateStates(rowIndex,columnIndex){
  * @returns {[false,undefined,undefined]|[true,false,undefined]|[true,true,markNumType]}
  */
 function getStates(){
-   
+    /*
+
+    この関数を編集
+
+    注：以下のreturn文は例です。そのままでは不正解です。
+    */
+    return [false,undefined,undefined];
 }
 
 /**
