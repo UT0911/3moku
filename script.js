@@ -72,6 +72,7 @@ if(tableArrs[rowIndex][columnIndex]==0)
  */
 function updateStates(rowIndex,columnIndex){
     return tableArrs[rowIndex][columnIndex]=turnNum;
+    turnNum*=-1;
 }
 
 /**
