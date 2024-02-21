@@ -61,7 +61,7 @@ table.addEventListener("click",clickEvent);/* クリック時の実行関数を�
  */
 function isAbleToMark(rowIndex,columnIndex){
         const TF;
-if(tableArrs[rowIndex][columnIndex]==0)
+if(tableArrs[rowIndex][columnIndex]==0){
     TF=true;
     return TF;
 }
@@ -76,6 +76,7 @@ function updateStates(rowIndex,columnIndex){
      tableArrs[rowIndex][columnIndex]=turnNum;
     turnNum*=-1;
 cnt+=1;
+    
 }
 
 /**
