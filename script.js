@@ -60,13 +60,10 @@ table.addEventListener("click",clickEvent);/* クリック時の実行関数を�
  * @returns {boolean}
  */
 function isAbleToMark(rowIndex,columnIndex){
-    /*
-
-    この関数を編集
-
-    注：以下のreturn文は例です。そのままでは不正解です。
-    */
-    return true;
+        const TF;
+if(tableArrs[rowIndex][columnIndex]==0)
+    TF=true;
+    return TF;
 }
 
 /**
