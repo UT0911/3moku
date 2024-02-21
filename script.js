@@ -60,8 +60,13 @@ table.addEventListener("click",clickEvent);/* クリック時の実行関数を�
  * @returns {boolean}
  */
 function isAbleToMark(rowIndex,columnIndex){
-    
+    /*
 
+    この関数を編集
+
+    注：以下のreturn文は例です。そのままでは不正解です。
+    */
+    return true;
 }
 
 /**
@@ -71,10 +76,12 @@ function isAbleToMark(rowIndex,columnIndex){
  * @returns {void}
  */
 function updateStates(rowIndex,columnIndex){
-     
-    turnNum*=-1;
-cnt+=1;
-    
+    /*
+
+    この関数を編集
+
+    */
+    return;
 }
 
 /**
