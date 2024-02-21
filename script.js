@@ -86,41 +86,7 @@ function updateStates(rowIndex,columnIndex){
  * @returns {[false,undefined,undefined]|[true,false,undefined]|[true,true,markNumType]}
  */
 function getStates(){
-    const sorou;
-    const TF,winner;
-    
-    for(j=0;j<3;j++){
-    for(const i=0;i<3;i++){
-        sorou+=tableArrs[i][j];
-    }
-    if((sorou==3)||(sorou==-3)){
-        end=true;
-        if(sorou==3){
-            winner=true;
-        }else{
-            winner=markNumType;
-        }
-        break;
-    }else{
-
-
-
-
-
-
-
-        
-        end=false;
-        win=undefined;
-        winner=markNumType;
-    }
-    }
-    if(cnt==9){
-        win=false;
-        winner=undefined;
-    }
-     
-    return [end,win,winner];
+   
 }
 
 /**
