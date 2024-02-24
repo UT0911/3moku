@@ -1,27 +1,27 @@
 //@ts-check
 
 /** 盤面を表すHTML要素 */
-const table = document.getElementById("field") ?? (()=>{throw new Error("HTMLElement '#field' is not found.")})();
+const table = document.getElementById("field") ?? (() => { throw new Error("HTMLElement '#field' is not found.") })();
 //console.log(table);
 
 /** ターン表示HTML要素 */
-const turnBox = document.getElementById("turn") ?? (()=>{throw new Error("HTMLElement '#turn' is not found.")})();
+const turnBox = document.getElementById("turn") ?? (() => { throw new Error("HTMLElement '#turn' is not found.") })();
 //console.log(turnBox);
 
 /** ターンを表す記号表示HTML要素 */
-const turnMarkEle = turnBox.querySelector("div.mark") ?? (()=>{throw new Error("HTMLElement '#turn div.mark' is not found.")})();
+const turnMarkEle = turnBox.querySelector("div.mark") ?? (() => { throw new Error("HTMLElement '#turn div.mark' is not found.") })();
 //console.log(turnMarkEle);
 
 /** 勝者表示HTML要素 */
-const winningBox = document.getElementById("winning") ?? (()=>{throw new Error("HTMLElement '#winning' is not found.")})();
+const winningBox = document.getElementById("winning") ?? (() => { throw new Error("HTMLElement '#winning' is not found.") })();
 //console.log(wonBox);
 
 /** 勝者を表す記号表示HTML要素 */
-const winningMarkEle = winningBox.querySelector("div.mark") ?? (()=>{throw new Error("HTMLElement '#winning div.mark' is not found.")})();
+const winningMarkEle = winningBox.querySelector("div.mark") ?? (() => { throw new Error("HTMLElement '#winning div.mark' is not found.") })();
 //console.log(wonMarkEle);
 
 /** 引き分け表示HTML要素 */
-const drawBox = document.getElementById("draw") ?? (()=>{throw new Error("HTMLElement '#draw' is not found.")})();
+const drawBox = document.getElementById("draw") ?? (() => { throw new Error("HTMLElement '#draw' is not found.") })();
 //console.log(drawBox);
 
 
@@ -44,14 +44,14 @@ let turnNum = -1;
 let cnt = 0;
 /** @type {tableType} 盤面の状態を管理する2次元配列*/
 const tableArrs = [
-    [0,0,0],
-    [0,0,0],
-    [0,0,0]
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
 ];
 
-viewMark(turnMarkEle,turnNum);/* 最初のターンの記号を表示 */
+viewMark(turnMarkEle, turnNum);/* 最初のターンの記号を表示 */
 
-table.addEventListener("click",clickEvent);/* クリック時の実行関数を設定 */
+table.addEventListener("click", clickEvent);/* クリック時の実行関数を設定 */
 
 /**
  * 行と列のインデックスから、その場所に記号をマークすることができるかを返す関数
@@ -59,14 +59,10 @@ table.addEventListener("click",clickEvent);/* クリック時の実行関数を�
  * @param {number} columnIndex
  * @returns {boolean}
  */
-function isAbleToMark(rowIndex,columnIndex){
-    /*
-
-    この関数を編集
-
-    注：以下のreturn文は例です。そのままでは不正解です。
-    */
-    return true;
+function isAbleToMark(rowIndex, columnIndex) {
+    if (tableArrs[rowIndex][columnIndex] == 0) {
+        return true;
+    }
 }
 
 /**
@@ -75,12 +71,10 @@ function isAbleToMark(rowIndex,columnIndex){
  * @param {number} columnIndex
  * @returns {void}
  */
-function updateStates(rowIndex,columnIndex){
-    /*
-
-    この関数を編集
-
-    */
+function updateStates(rowIndex, columnIndex) {
+    tableArrs[rowIndex][columnIndex] = turnNum;
+    turnNum *= -1;
+    cnt += 1;
     return;
 }
 
@@ -91,46 +85,94 @@ function updateStates(rowIndex,columnIndex){
  * ゲーム終了であるが、勝敗が決まらなかった場合は、3つ目の要素は「undefined」とする。
  * @returns {[false,undefined,undefined]|[true,false,undefined]|[true,true,markNumType]}
  */
-function getStates(){
-    /*
-
-    この関数を編集
-
-    注：以下のreturn文は例です。そのままでは不正解です。
-    */
-    return [false,undefined,undefined];
+function getStates() {
+    let result;
+    if ((tableArrs[0][0] == 1) && (tableArrs[1][0] == 1) && (tableArrs[2][0] == 1)) {
+        result = [true, true, 1];
+    } else
+        if ((tableArrs[0][1] == 1) && (tableArrs[1][1] == 1) && (tableArrs[2][1] == 1)) {
+            result = [true, true, 1];
+        } else if ((tableArrs[0][2] == 1) && (tableArrs[1][2] == 1) && (tableArrs[2][2] == 1)) {
+            result = [true, true, 1];
+        } else if ((tableArrs[0][0] == 1) && (tableArrs[0][1] == 1) && (tableArrs[0][2] == 1)) {
+            result = [true, true, 1];
+        } else if ((tableArrs[1][0] == 1) && (tableArrs[1][1] == 1) && (tableArrs[1][2] == 1)) {
+            result = [true, true, 1];
+        } else if ((tableArrs[2][0] == 1) && (tableArrs[2][1] == 1) && (tableArrs[2][2] == 1)) {
+            result = [true, true, 1];
+        } else if ((tableArrs[0][0] == 1) && (tableArrs[1][1] == 1) && (tableArrs[2][2] == 1)) {
+            result = [true, true, 1];
+        } else if ((tableArrs[0][2] == 1) && (tableArrs[1][1] == 1) && (tableArrs[2][0] == 1)) {
+            result = [true, true, 1];
+        } else if ((tableArrs[0][0] == -1) && (tableArrs[1][0] == -1) && (tableArrs[2][0] == -1)) {//
+            result = [true, true, -1];
+        } else if ((tableArrs[0][1] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][1] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[0][2] == -1) && (tableArrs[1][2] == -1) && (tableArrs[2][2] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[0][0] == -1) && (tableArrs[0][1] == -1) && (tableArrs[0][2] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[1][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[1][2] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[2][0] == -1) && (tableArrs[2][1] == -1) && (tableArrs[2][2] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[0][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][2] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[0][2] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][0] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[0][0] == -1) && (tableArrs[1][0] == -1) && (tableArrs[2][0] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[0][1] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][1] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[0][2] == -1) && (tableArrs[1][2] == -1) && (tableArrs[2][2] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[0][0] == -1) && (tableArrs[0][1] == -1) && (tableArrs[0][2] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[1][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[1][2] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[2][0] == -1) && (tableArrs[2][1] == -1) && (tableArrs[2][2] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[0][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][2] == -1)) {
+            result = [true, true, -1];
+        } else if ((tableArrs[0][2] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][0] == -1)) {
+            result = [true, true, -1];
+        } else if (cnt == 9) {
+            result = [true,false,undefined];
+        } else {
+            result = [false,undefined,undefined];
+        }
+        return result;
 }
-
 /**
  * 盤（盤のセル）をクリックした際に呼び出される関数
  * @param {MouseEvent} e
  * @returns {void}
  */
-function clickEvent(e){
+function clickEvent(e) {
     //console.log(e);
     const cell = e.target;/* クリックされたセルHTML要素を取得 */
-    if(!(cell instanceof HTMLTableCellElement))return;/* 要素チェック */
+    if (!(cell instanceof HTMLTableCellElement)) return;/* 要素チェック */
     const columnIndex = cell.cellIndex;/* 列インデックスを取得 */
 
     const row = cell.parentElement;/* セルHTML要素を持つ行HTML要素を取得 */
-    if(!(row instanceof HTMLTableRowElement))return;/* 要素チェック */
+    if (!(row instanceof HTMLTableRowElement)) return;/* 要素チェック */
     const rowIndex = row.rowIndex;/* 行インデックスを取得 */
 
-    if(!isAbleToMark(rowIndex,columnIndex)){/* マークできない場所であれば関数を終了 */
+    if (!isAbleToMark(rowIndex, columnIndex)) {/* マークできない場所であれば関数を終了 */
         return;
     }
     const markEle = cell.querySelector("div.mark");/* セルの記号表示HTML要素を取得 */
     /* 記号表示HTML要素がなければエラー */
-    if(markEle == null)throw new Error("Error: HTMLElement 'div.mark' is not found in the clicked target");
+    if (markEle == null) throw new Error("Error: HTMLElement 'div.mark' is not found in the clicked target");
 
-    viewMark(markEle,turnNum);/* セルに記号を表示 */
+    viewMark(markEle, turnNum);/* セルに記号を表示 */
 
-    updateStates(rowIndex,columnIndex);/* 変数の値を更新 */
+    updateStates(rowIndex, columnIndex);/* 変数の値を更新 */
 
-    viewMark(turnMarkEle,turnNum);/* 次のターンの記号を案内表示 */
+    viewMark(turnMarkEle, turnNum);/* 次のターンの記号を案内表示 */
     const states = getStates();/* ゲーム状況を取得 */
-    if(states[0]){/* ゲームが終了していれば... */
-        const [,...finishArgs] = states;/* 対戦結果を取得 */
+    if (states[0]) {/* ゲームが終了していれば... */
+        const [, ...finishArgs] = states;/* 対戦結果を取得 */
         doFinish(finishArgs);/* 対戦結果からリザルト表示と、ゲーム終了処理 */
     }
     return;
@@ -142,11 +184,11 @@ function clickEvent(e){
  * @param {markNumType} markNum 指定する記号の数値
  * @returns {void}
  */
-function viewMark(markEle,markNum){
+function viewMark(markEle, markNum) {
     //console.log(markEle);
     //console.log(markNum);
     /* 不正な値を指定した場合はエラー */
-    if(!markNumToName.hasOwnProperty(markNum))throw new Error(`Error: Illegal markNum ${markNum}`);
+    if (!markNumToName.hasOwnProperty(markNum)) throw new Error(`Error: Illegal markNum ${markNum}`);
     markEle.classList.remove("circle");
     markEle.classList.remove("cross");
     markEle.classList.add(markNumToName[markNum]);/* 指定した記号に上書き */
@@ -158,13 +200,13 @@ function viewMark(markEle,markNum){
  * @param {[false,undefined]|[true,markNumType]} args winningMarkNumは、isWinningが、falseならばundefined、trueならば1または-1
  * @return {void}
  */
-function doFinish([isWinning,winningMarkNum]){
-    if(isWinning){/* 勝敗が決まったら... */
+function doFinish([isWinning, winningMarkNum]) {
+    if (isWinning) {/* 勝敗が決まったら... */
         winningBox.classList.add("open");/* 勝者表示HTML要素を表示 */
-        viewMark(winningMarkEle,winningMarkNum);/* 勝者の記号を表示 */
-    }else{/* 引き分けならば... */
+        viewMark(winningMarkEle, winningMarkNum);/* 勝者の記号を表示 */
+    } else {/* 引き分けならば... */
         drawBox.classList.add("open");/* 引き分け表示HTML要素を表示 */
     }
     turnBox.classList.remove("open");/* ターン表示HTML要素を非表示にする */
-    table.removeEventListener("click",clickEvent);/* クリックイベントを削除 */
+    table.removeEventListener("click", clickEvent);/* クリックイベントを削除 */
 }
