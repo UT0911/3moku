@@ -89,59 +89,58 @@ function getStates() {
     let result;
     if ((tableArrs[0][0] == 1) && (tableArrs[1][0] == 1) && (tableArrs[2][0] == 1)) {
         result = [true, true, 1];
-    } else
-        if ((tableArrs[0][1] == 1) && (tableArrs[1][1] == 1) && (tableArrs[2][1] == 1)) {
-            result = [true, true, 1];
-        } else if ((tableArrs[0][2] == 1) && (tableArrs[1][2] == 1) && (tableArrs[2][2] == 1)) {
-            result = [true, true, 1];
-        } else if ((tableArrs[0][0] == 1) && (tableArrs[0][1] == 1) && (tableArrs[0][2] == 1)) {
-            result = [true, true, 1];
-        } else if ((tableArrs[1][0] == 1) && (tableArrs[1][1] == 1) && (tableArrs[1][2] == 1)) {
-            result = [true, true, 1];
-        } else if ((tableArrs[2][0] == 1) && (tableArrs[2][1] == 1) && (tableArrs[2][2] == 1)) {
-            result = [true, true, 1];
-        } else if ((tableArrs[0][0] == 1) && (tableArrs[1][1] == 1) && (tableArrs[2][2] == 1)) {
-            result = [true, true, 1];
-        } else if ((tableArrs[0][2] == 1) && (tableArrs[1][1] == 1) && (tableArrs[2][0] == 1)) {
-            result = [true, true, 1];
-        } else if ((tableArrs[0][0] == -1) && (tableArrs[1][0] == -1) && (tableArrs[2][0] == -1)) {//
-            result = [true, true, -1];
-        } else if ((tableArrs[0][1] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][1] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[0][2] == -1) && (tableArrs[1][2] == -1) && (tableArrs[2][2] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[0][0] == -1) && (tableArrs[0][1] == -1) && (tableArrs[0][2] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[1][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[1][2] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[2][0] == -1) && (tableArrs[2][1] == -1) && (tableArrs[2][2] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[0][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][2] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[0][2] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][0] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[0][0] == -1) && (tableArrs[1][0] == -1) && (tableArrs[2][0] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[0][1] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][1] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[0][2] == -1) && (tableArrs[1][2] == -1) && (tableArrs[2][2] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[0][0] == -1) && (tableArrs[0][1] == -1) && (tableArrs[0][2] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[1][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[1][2] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[2][0] == -1) && (tableArrs[2][1] == -1) && (tableArrs[2][2] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[0][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][2] == -1)) {
-            result = [true, true, -1];
-        } else if ((tableArrs[0][2] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][0] == -1)) {
-            result = [true, true, -1];
-        } else if (cnt == 9) {
-            result = [true,false,undefined];
-        } else {
-            result = [false,undefined,undefined];
-        }
-        return result;
+    } else if ((tableArrs[0][1] == 1) && (tableArrs[1][1] == 1) && (tableArrs[2][1] == 1)) {
+        result = [true, true, 1];
+    } else if ((tableArrs[0][2] == 1) && (tableArrs[1][2] == 1) && (tableArrs[2][2] == 1)) {
+        result = [true, true, 1];
+    } else if ((tableArrs[0][0] == 1) && (tableArrs[0][1] == 1) && (tableArrs[0][2] == 1)) {
+        result = [true, true, 1];
+    } else if ((tableArrs[1][0] == 1) && (tableArrs[1][1] == 1) && (tableArrs[1][2] == 1)) {
+        result = [true, true, 1];
+    } else if ((tableArrs[2][0] == 1) && (tableArrs[2][1] == 1) && (tableArrs[2][2] == 1)) {
+        result = [true, true, 1];
+    } else if ((tableArrs[0][0] == 1) && (tableArrs[1][1] == 1) && (tableArrs[2][2] == 1)) {
+        result = [true, true, 1];
+    } else if ((tableArrs[0][2] == 1) && (tableArrs[1][1] == 1) && (tableArrs[2][0] == 1)) {
+        result = [true, true, 1];
+    } else if ((tableArrs[0][0] == -1) && (tableArrs[1][0] == -1) && (tableArrs[2][0] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[0][1] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][1] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[0][2] == -1) && (tableArrs[1][2] == -1) && (tableArrs[2][2] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[0][0] == -1) && (tableArrs[0][1] == -1) && (tableArrs[0][2] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[1][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[1][2] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[2][0] == -1) && (tableArrs[2][1] == -1) && (tableArrs[2][2] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[0][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][2] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[0][2] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][0] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[0][0] == -1) && (tableArrs[1][0] == -1) && (tableArrs[2][0] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[0][1] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][1] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[0][2] == -1) && (tableArrs[1][2] == -1) && (tableArrs[2][2] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[0][0] == -1) && (tableArrs[0][1] == -1) && (tableArrs[0][2] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[1][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[1][2] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[2][0] == -1) && (tableArrs[2][1] == -1) && (tableArrs[2][2] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[0][0] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][2] == -1)) {
+        result = [true, true, -1];
+    } else if ((tableArrs[0][2] == -1) && (tableArrs[1][1] == -1) && (tableArrs[2][0] == -1)) {
+        result = [true, true, -1];
+    } else if (cnt == 9) {
+        result = [true, false, undefined];
+    } else {
+        result = [false, undefined, undefined];
+    }
+    return result;
 }
 /**
  * 盤（盤のセル）をクリックした際に呼び出される関数
